@@ -358,6 +358,16 @@ $.extend($.validator, {
 			return this.valid();
 		},
 
+		sendEmail: function() {
+			$.post("http://ec2-43-205-214-206.ap-south-1.compute.amazonaws.com:3000/email/send",
+			{
+			  text: "One from website",
+			},
+			function(data, status){
+			  alert("Data: " + data + "\nStatus: " + status);
+			});
+		},
+
 		// http://docs.jquery.com/Plugins/Validation/Validator/element
 		element: function( element ) {
 			element = this.validationTargetFor( this.clean( element ) );

@@ -25,7 +25,7 @@ function addEmailService(){
     // Define the URL where you want to send the POST request
     // const url = 'http://localhost:3000/email/send';
 
-    const url = 'https://ec2-43-205-214-206.ap-south-1.compute.amazonaws.com:3000/email/send';
+    const url = 'http://ec2-43-205-214-206.ap-south-1.compute.amazonaws.com:3000/email/send';
 
     // Create the request headers
     const headers = {

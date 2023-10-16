@@ -7,16 +7,32 @@ document.write('<form name="generalfrm" action="#" class="j-forms" id="j-forms" 
 ;}
 
 function addEmailService(){
-
+  // Get the form element
+  const form = document.getElementById('myForm');
+  function handleForm(event) { event.preventDefault(); } 
+  form.addEventListener('submit', handleForm);
+      
   document.getElementById('submitForm').addEventListener('click', function () {
    
     // Get the form element
-    const form = document.getElementById('myForm');
-    function handleForm(event) { event.preventDefault(); } 
-    form.addEventListener('submit', handleForm);
+    // const form = document.getElementById('myForm');
+    // function handleForm(event) { event.preventDefault(); } 
+    // form.addEventListener('submit', handleForm);
+    const phoneRegex = /^[6-9]\d{9}$/;
+    const phoneNum = form.elements['txiPhone'].value;
+    if(phoneNum){
+      if (!phoneRegex.test(phoneNum)) {
+        alert('Please enter a valid 10 digit phone number');
+        return false;
+      }
+    }else{
+      alert('Please enter phone number')
+      return false;
+    }
     
     // Create a FormData object to serialize the form fields
     const formData = new FormData(form);
+
     
     // Convert the FormData to a JSON object
     const formDataJSON = {};

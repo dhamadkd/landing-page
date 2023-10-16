@@ -12,6 +12,8 @@ function addEmailService(){
    
     // Get the form element
     const form = document.getElementById('myForm');
+    function handleForm(event) { event.preventDefault(); } 
+    form.addEventListener('submit', handleForm);
     
     // Create a FormData object to serialize the form fields
     const formData = new FormData(form);
